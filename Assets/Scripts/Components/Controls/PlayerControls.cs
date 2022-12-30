@@ -18,67 +18,18 @@ namespace Components.Controls {
             var h = GetHorizontalDirection();
             var v = GetVerticalDirection();
 
-            if (h.HasValue && CanWalk(h.Value)) {
-                player.Body.StartMoveTo(h.Value);
+            if (h.HasValue && player.CanWalk(h.Value)) {
+                player.MoveTo(h.Value);
             }
-            else if (h.HasValue && CanPush(h.Value)) {
-                var targetCellPosition = player.Body.GetCellPositionAt(h.Value);
-                var pushedBody = world.GetBodyAtCell(targetCellPosition);
-                var pushSpeed = pushedBody.MoveSpeed;
-
-                player.Body.StartMoveTo(h.Value, pushSpeed);
-                pushedBody.StartMoveTo(h.Value, pushSpeed);
-                pushedBody.FallOnce();
+            else if (h.HasValue && player.CanPush(h.Value)) {
+                player.PushTo(h.Value);
             }
-            else if (v == Direction.Down && CanStomp()) {
-                var targetCellPosition = player.Body.GetCellPositionAt(v.Value);
-                var pushedBody = world.GetBodyAtCell(targetCellPosition);
-                var pushSpeed = pushedBody.FallSpeed;
-
-                player.Body.StartMoveTo(v.Value, pushSpeed);
-                pushedBody.StartMoveTo(v.Value, pushSpeed);
-                pushedBody.FallOnce();
+            else if (v == Direction.Down && player.CanStomp()) {
+                player.PushTo(v.Value);
             }
-            else if (v.HasValue && CanFly(v.Value)) {
-                player.Body.StartMoveTo(v.Value);
+            else if (v.HasValue && player.CanFly(v.Value)) {
+                player.MoveTo(v.Value);
             }
-        }
-
-        private bool CanWalk(Direction direction) {
-            var targetCellPosition = player.Body.GetCellPositionAt(direction);
-
-            return world.IsCellPassable(targetCellPosition);
-        }
-
-        private bool CanPush(Direction direction) {
-            var targetCellPosition = player.Body.GetCellPositionAt(direction);
-            var targetBody = world.GetBodyAtCell(targetCellPosition);
-            var finalBodyPosition = player.Body.CellPosition + direction.AsCellPosition() * 2;
-            var isFinalPositionPassable = world.IsCellEmpty(finalBodyPosition);
-
-            return targetBody
-                   && !targetBody.IsMoving
-                   && targetBody.IsPushable
-                   && isFinalPositionPassable;
-        }
-
-        private bool CanStomp() {
-            var finalBodyPosition = player.Body.CellPosition + Direction.Down.AsCellPosition() * 2;
-            
-            return CanPush(Direction.Down) && !world.HasElevatorAt(finalBodyPosition);
-        }
-
-        private bool CanFly(Direction direction) {
-            var targetCellPosition = player.Body.GetCellPositionAt(direction);
-            var hasElevatorAtCurrent = world.HasElevatorAt(player.Body.CellPosition);
-            var hasElevatorAtTarget = world.HasElevatorAt(targetCellPosition);
-            var isTargetCellPassable = world.IsCellPassable(targetCellPosition);
-
-            if (direction == Direction.Down) {
-                return (hasElevatorAtCurrent || hasElevatorAtTarget) && isTargetCellPassable;
-            }
-            
-            return hasElevatorAtCurrent && hasElevatorAtTarget && isTargetCellPassable;
         }
 
         private Direction? GetHorizontalDirection() {
