@@ -63,7 +63,9 @@ namespace Components.Controls {
         }
 
         private bool CanStomp() {
-            return CanPush(Direction.Down);
+            var finalBodyPosition = player.Body.CellPosition + Direction.Down.AsCellPosition() * 2;
+            
+            return CanPush(Direction.Down) && !world.HasElevatorAt(finalBodyPosition);
         }
 
         private bool CanFly(Direction direction) {
