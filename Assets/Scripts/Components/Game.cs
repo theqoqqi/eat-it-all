@@ -31,7 +31,7 @@ namespace Components {
         }
 
         private void Start() {
-            // LoadNextLevel();
+            LoadNextLevel();
         }
 
         private void Update() {
@@ -61,6 +61,10 @@ namespace Components {
         }
 
         private void LoadLevel(int levelIndex) {
+            if (levelIndex >= 0 && levelIndex < levels.Count) {
+                return;
+            }
+            
             var levelName = levels[levelIndex];
 
             if (levelName == null || !Application.CanStreamedLevelBeLoaded(levelName)) {
