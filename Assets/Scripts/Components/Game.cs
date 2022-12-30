@@ -61,7 +61,7 @@ namespace Components {
         }
 
         private void LoadLevel(int levelIndex) {
-            if (levelIndex >= 0 && levelIndex < levels.Count) {
+            if (!(levelIndex >= 0 && levelIndex < levels.Count)) {
                 return;
             }
             
