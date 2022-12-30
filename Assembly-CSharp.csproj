@@ -126,7 +126,6 @@
      <Folder Include="Assets\Library\Pixel Adventure 1\Other" />
      <Folder Include="Assets\Scripts\Core\Util" />
      <Folder Include="Assets\Scripts\Components\Entities\Utils" />
-     <Folder Include="Assets\Scripts" />
      <Folder Include="Assets\Resources\Prefabs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
      <Folder Include="Assets\Scenes" />
@@ -877,6 +876,7 @@
      </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Scripts\Задача.md" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

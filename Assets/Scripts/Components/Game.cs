@@ -31,21 +31,11 @@ namespace Components {
         }
 
         private void Start() {
-            LoadNextLevel();
+            // Пиши код тут
         }
 
         private void Update() {
-            if (Input.GetKeyDown(KeyCode.R)) {
-                RestartLevel();
-            }
-            
-            if (Input.GetKeyDown(KeyCode.Backspace)) {
-                LoadPrevLevel();
-            }
-            
-            if (Input.GetKeyDown(KeyCode.Return)) {
-                LoadNextLevel();
-            }
+            // И вот тут
         }
 
         public void RestartLevel() {
