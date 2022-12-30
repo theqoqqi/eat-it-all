@@ -15,7 +15,7 @@ namespace Components.UI {
         }
 
         private void Update() {
-            textMesh.SetText(level.Score.ToString());
+            // Пиши свой код здесь
         }
     }
 }
