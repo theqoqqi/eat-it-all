@@ -18,17 +18,11 @@ namespace Components.Entities.Players {
         }
 
         public void MoveTo(Direction direction) {
-            Body.StartMoveTo(direction);
+            // Пиши код тут
         }
 
         public void PushTo(Direction direction) {
-            var targetCellPosition = Body.GetCellPositionAt(direction);
-            var pushedBody = World.GetBodyAtCell(targetCellPosition);
-            var pushSpeed = direction == Direction.Down ? pushedBody.FallSpeed : pushedBody.MoveSpeed;
-
-            Body.StartMoveTo(direction, pushSpeed);
-            pushedBody.StartMoveTo(direction, pushSpeed);
-            pushedBody.FallOnce();
+            // И вот тут
         }
 
         public bool CanWalk(Direction direction) {
