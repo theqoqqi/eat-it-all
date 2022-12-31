@@ -61,7 +61,6 @@
      <Compile Include="Assets\Scripts\Components\UI\FollowingCameraController.cs" />
      <Compile Include="Assets\Scripts\Components\Entities\Elevator.cs" />
      <Compile Include="Assets\Scripts\Core\Util\DirectionExtensions.cs" />
-     <Folder Include="Assets" />
      <Folder Include="Assets\Library\Pixel Adventure 1\Traps\Saw" />
      <Folder Include="Assets\Library\Pixel Adventure 1\Main Characters\Mask Dude" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -876,7 +875,7 @@
      </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\Scripts\Задача.md" />
+    <Content Include="Assets\Задача.md" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
