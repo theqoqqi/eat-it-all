@@ -24,5 +24,7 @@ namespace Components.Entities {
                 requiredScore = FindObjectsOfType<Item>().Sum(item => item.pickupScore);
             }
         }
+        
+        // Пиши код тут
     }
 }
