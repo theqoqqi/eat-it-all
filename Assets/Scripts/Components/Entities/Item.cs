@@ -24,10 +24,7 @@ namespace Components.Entities {
         }
 
         private void Collect() {
-            isCollected = true;
-
-            Level.AddScore(pickupScore);
-            animator.Play("Collected");
+            // Пиши код тут
         }
     }
 }
