@@ -24,25 +24,5 @@ namespace Components.Entities {
                 requiredScore = FindObjectsOfType<Item>().Sum(item => item.pickupScore);
             }
         }
-        
-        private void Update() {
-            if (!isActivated && HasRequiredScore && player && player.Body.CellPosition == CellPosition) {
-                Activate();
-            }
-        }
-
-        private void Activate() {
-            isActivated = true;
-
-            animator.Play("Activated");
-
-            StartCoroutine(GoToNextLevel());
-        }
-
-        private IEnumerator GoToNextLevel() {
-            yield return new WaitForSeconds(3f);
-            
-            Game.Instance.LoadNextLevel();
-        }
     }
 }
