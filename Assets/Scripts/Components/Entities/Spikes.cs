@@ -21,9 +21,7 @@ namespace Components.Entities {
         }
 
         private void Activate() {
-            isActivated = true;
-
-            player.Kill();
+            // Пиши код тут
 
             StartCoroutine(RestartLevel());
         }
@@ -31,7 +29,7 @@ namespace Components.Entities {
         private IEnumerator RestartLevel() {
             yield return new WaitForSeconds(1.5f);
             
-            Game.Instance.RestartLevel();
+            // И вот тут
         }
     }
 }
