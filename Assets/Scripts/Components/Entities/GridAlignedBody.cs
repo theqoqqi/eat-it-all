@@ -62,24 +62,11 @@ namespace Components.Entities {
         }
         
         private void Update() {
-            StepTowardsTargetPosition();
-            
-            if (!IsMoving && ShouldFall) {
-                StartMoveTo(Direction.Down, fallSpeed);
-            }
-
-            if (!IsMoving && ShouldElevate) {
-                StartMoveTo(Direction.Up);
-            }
+            // Пиши код тут
         }
 
         private void OnTargetPositionReached() {
-            if (ShouldFall) {
-                StartMoveTo(Direction.Down, fallSpeed);
-            }
-            else {
-                fallingEnabled &= fallAlways;
-            }
+            // Или вот тут
         }
 
         public void StartMoveTo(Direction direction) {
