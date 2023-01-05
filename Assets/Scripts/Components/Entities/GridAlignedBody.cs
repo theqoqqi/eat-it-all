@@ -74,11 +74,8 @@ namespace Components.Entities {
         }
 
         private void OnTargetPositionReached() {
-            if (ShouldFall) {
-                StartMoveTo(Direction.Down, fallSpeed);
-            }
-            else {
-                fallingEnabled &= fallAlways;
+            if (!ShouldFall && !fallAlways) {
+                fallingEnabled = false;
             }
         }
 
