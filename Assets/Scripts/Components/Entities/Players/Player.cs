@@ -61,10 +61,6 @@ namespace Components.Entities.Players {
             var hasElevatorAtTarget = World.HasElevatorAt(targetCellPosition);
             var isTargetCellPassable = World.IsCellPassable(targetCellPosition);
 
-            if (direction == Direction.Down) {
-                return (hasElevatorAtCurrent || hasElevatorAtTarget) && isTargetCellPassable;
-            }
-            
             return hasElevatorAtCurrent && hasElevatorAtTarget && isTargetCellPassable;
         }
     }

@@ -48,12 +48,12 @@ namespace Components.Entities {
         
         public bool ShouldFall => fallingEnabled
                                   && world.IsCellPassable(GetCellPositionAt(Direction.Down), passThroughBodies)
-                                  && !world.HasElevatorAt(CellPosition)
-                                  && !world.HasElevatorAt(GetCellPositionAt(Direction.Down));
+                                  && !world.HasElevatorAt(CellPosition);
         
         public bool ShouldElevate => IsSelfElevating
                                      && world.IsCellPassable(GetCellPositionAt(Direction.Up), passThroughBodies)
-                                     && world.HasElevatorAt(CellPosition);
+                                     && world.HasElevatorAt(CellPosition)
+                                     && world.HasElevatorAt(GetCellPositionAt(Direction.Up));
 
         protected override void Awake() {
             targetPosition = Position;
